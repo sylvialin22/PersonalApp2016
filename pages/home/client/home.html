@@ -1,12 +1,16 @@
 <template name="home">
-  <h2> Hello </h2>
-  Welcome to my App!
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-6 col-md-4">A</div>
-    <div class="col-xs-6 col-md-4">B</div>
-    <div class="col-xs-6 col-md-4">C</div>
-  </div>
+  <div class="jumbotron">
+  <h1>Sylvia's Personal App</h1>
+  <p>Welcome to my Personal App!</p>
+  <p><a class="btn btn-primary btn-lg" href="{{pathFor 'about'}}" role="button">Learn more</a></p>
 </div>
+
+<br><br>
+
+{{#if currentUser}}
+		Congradulations for getting logged in!
+	{{else}}
+		You must logged in.
+  {{/if}}
+
 </template>
