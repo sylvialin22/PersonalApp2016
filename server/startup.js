@@ -1,0 +1,14 @@
+Meteor.startup(function(){
+  if(Lists.find().count()==0){
+    Lists.insert(
+      {name:"Movies",items:["a","b","c"]});
+    Lists.insert(
+      {name:"Colors",items:["red","yellow","blue"]});
+    Lists.insert(
+      {name:"Closet",items:["shirt","pants","shoes"]});
+    Lists.insert(
+      {name:"Travel",items:["Canada","Chile","Peru"]});
+    Lists.insert(
+      {name:"Books",items:["a","b","c"]});
+  }
+})

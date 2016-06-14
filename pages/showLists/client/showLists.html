@@ -1,0 +1,21 @@
+<template name="showLists">
+  <h1>All Lists</h1>
+  Find list: <input type="text" class="js-list">
+  Done:
+  <input type="checkbox" class="js-done"><br>
+  <hr>
+
+  <h2>Make new list</h2>
+  Name: <input type="text" class="js-name"><br>
+  Item: <input type="text" class="js-item"><br>
+  <button class="js-submitList">Submit</button>
+
+  <ul>
+    {{#each r in lists}}
+    <li>{{r.name}}: </li>
+    {{r.items}}
+    <br>
+    {{/each}}
+
+  </ul>
+</template>
