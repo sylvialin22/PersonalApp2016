@@ -1,21 +1,32 @@
 <template name="showLists">
   <h1>All Lists</h1>
   Find list: <input type="text" class="js-list">
-  Done:
-  <input type="checkbox" class="js-done"><br>
+  <button class="js-find-list btn btn-default"> Search</button>
+
   <hr>
 
-  <h2>Make new list</h2>
-  Name: <input type="text" class="js-name"><br>
-  Item: <input type="text" class="js-item"><br>
-  <button class="js-submitList">Submit</button>
-
-  <ul>
-    {{#each r in lists}}
-    <li>{{r.name}}: </li>
-    {{r.items}}
-    <br>
+  <ul class="list-group">
+    {{#each r in listData}}
+      {{> listRow list = r}}
     {{/each}}
-
   </ul>
+</template>
+
+<template name = "listRow">
+  <li class="list-group-item">
+    <!-- <a href="https://google.com/#q={{list.name}}">{{list.name}}</a> -->
+    {{list.name}}
+
+    <!-- <span class="badge">#</span> -->
+    <span class="js-complete-list glyphicon glyphicon-check " aria-hidden="true"></span>
+    <span style="visibility:{{visibility}}">
+			<!-- {{list.name}} -->
+			</span>
+    <span class="js-edit-list glyphicon glyphicon-font" aria-hidden="true"></span>
+    <span class = "js-delete-list glyphicon glyphicon-remove" aria-hidden ="true"></span>
+</li>
+<ol>
+  <a href="https://google.com/#q={{list.name}}+{{list.items}}">{{list.items}}</a>
+</ol>
+  <br>
 </template>

@@ -1,14 +1,31 @@
 <template name="home">
   <div class="jumbotron">
-  <h1>Checklist</h1>
+  <h1>Bucketlist <img src="images/bucketlist.jpg" width="100"> </h1>
   <p>Welcome to my Personal App!</p>
   <p><a class="btn btn-primary btn-lg" href="{{pathFor 'about'}}" role="button">Learn more</a></p>
+  <p><a class="btn btn-primary btn-lg" href="{{pathFor 'showLists'}}" role="button">Your BucketLists</a></p>
+
 </div>
 
 <br><br>
 
 {{#if currentUser}}
-		Congradulations for getting logged in!
+		Congratulations! You're logged in!
+
+    <h2>Make new list</h2>
+
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">List Title:</span>
+        <input type="text" class="js-name" aria-describedby="basic-addon1" size="60">
+
+      <span class="input-group-addon" id="basic-addon1">Items: </span>
+      <input type="text" class="js-items" aria-describedby="basic-addon1" size="60">
+    </div>
+    <br>
+
+    <button class="js-submitList btn btn-default"> Submit</button>
+
 	{{else}}
 		You must logged in.
   {{/if}}
