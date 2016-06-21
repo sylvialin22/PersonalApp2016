@@ -12,9 +12,12 @@
   </ul>
 </template>
 
+
 <template name = "listRow">
   <li class="list-group-item">
-    <a href="https://google.com/#q={{list.name}}">{{list.name}}</a>
+    <a href="/showLists/{{list._id}}">{{list.name}}</a>
+
+    <!-- <a href="https://google.com/#q={{list.name}}">{{list.name}}</a> -->
     <!-- {{list.name}} -->
 
     <!-- <span class="badge">#</span> -->
@@ -25,8 +28,13 @@
     <span class="js-edit-list glyphicon glyphicon-font" aria-hidden="true"></span>
     <span class = "js-delete-list glyphicon glyphicon-remove" aria-hidden ="true"></span>
 </li>
-<ol>
-  <a href="https://google.com/#q={{list.name}}+{{list.items}}">{{list.items}}</a>
-</ol>
   <br>
+</template>
+
+<template name = "selectedList">
+  <h3>{{name}}</h3>
+  <hr>
+  <ol>
+    <li><a href="https://google.com/#q={{list.name}}+{{list.items}}">{{items}}</a></li>
+  </ol>
 </template>

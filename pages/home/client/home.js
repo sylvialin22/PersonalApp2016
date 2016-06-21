@@ -4,15 +4,26 @@ Template.home.events({
     //read in the values of the input fields and store
     const name = $(".js-name").val();
     const items = $(".js-items").val();
-    const list =
-    {name:name,items:items}
+    const list = {name:name,items:items};
     console.dir(list);
     Lists.insert(list);
     $(".js-name").val("");
     $(".js-items").val("");
     console.log("SUCCESS");
+  },
+  "change .js-color": function(event, instance){
+    console.log($(".js-color").val());
+    //change the color field of the state object...
+    const c = instance.$(".js-color").val(); //local instance query
+    return instance.state.set('color', c);
+  },
 
-  }
+  "click .js-counter": function(event, instance){
+    console.log("PUSHED");
+    const c = instance.state.get("counter"); //local instance query
+    return instance.state.set('counter', c + 1);
+  },
+
 })
 
 Template.home.onCreated(function() {

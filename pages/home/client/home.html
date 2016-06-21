@@ -30,9 +30,14 @@
 		You must logged in.
   {{/if}}
   <br>
+  <div class="{{theColor}}">
+  <select class = "js-color">
+    <option>bg-info</option>
+    <option>bg-warning</option>
+  </select>
   Color: {{theColor}}<br>
+
   Counter: {{theCounter}}<br>
-
-  <button class="js-pusher"> Push me </button>
-
+  <button class="js-counter"> Push me </button>
+</div>
 </template>
