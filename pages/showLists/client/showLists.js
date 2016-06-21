@@ -1,7 +1,8 @@
 Template.showLists.helpers({
   listData: function(){
     return Lists.find({}, {sort: {date_created: 1}})
-  }
+  },
+
 })
 
 Template.showLists.events({
@@ -33,6 +34,8 @@ Template.listRow.events({
   "click .js-edit-list":
   function(event){
     console.log("editing list");
+    const id = this.list._id;
+    window.location.replace("/showLists/" + id);
   },
   "click .js-complete-list":
   function(event){
