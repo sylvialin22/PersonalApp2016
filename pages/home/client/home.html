@@ -1,6 +1,8 @@
 <template name="home">
   <div class="jumbotron">
-  <h1>Bucketlist <img src="images/bucketlist.jpg" width="100"> </h1>
+  <h1>Bucketlist
+    <!-- <img src="images/bucketlist.jpg" width="100">  -->
+  </h1>
   <p>Welcome to my Personal App!</p>
   <p><a class="btn btn-primary btn-lg" href="{{pathFor 'about'}}" role="button">Learn more</a></p>
   <p><a class="btn btn-primary btn-lg" href="{{pathFor 'showLists'}}" role="button">Your BucketLists</a></p>
@@ -26,6 +28,12 @@
     <br>
 
     <button class="js-submitList btn btn-default"> Submit</button>
+
+    <!-- <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Success!</strong> You're list has been created!
+    </div> -->
+
     <br>
 
 	{{else}}

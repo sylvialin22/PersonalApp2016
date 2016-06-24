@@ -6,10 +6,12 @@ Template.home.events({
     const items = $(".js-items").val();
     const list = {name:name,items:items};
     console.dir(list);
-    Lists.insert(list);
+    // Lists.insert(list);
+    Meteor.call("submitList", list);
     $(".js-name").val("");
     $(".js-items").val("");
     console.log("SUCCESS");
+    // Session.set('showCompleted',true);
   },
   "change .js-color": function(event, instance){
     console.log($(".js-color").val());
@@ -45,4 +47,14 @@ Template.home.helpers({
     const instance = Template.instance();
     return instance.state.get("counter");
   },
+  // visibility: function(){
+	// 	if (Session.get("showCompleted")) {
+	// 		   return "visible";
+	// 	   } else {
+	// 	   	   return "hidden";
+	// 	   }
+	// },
+	// showCompleted: function(){
+	// 	return Session.get("showCompleted")
+	// }
 })

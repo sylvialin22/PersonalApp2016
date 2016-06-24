@@ -22,8 +22,8 @@ Template.comments.events({
 	    createdAt: new Date(),
 	    createdBy: Meteor.userId(),
 	    userEmail: Meteor.user().emails[0].address};
-	    //console.dir(comment_obj);
-      Comments.insert(comment_obj);
+	    console.dir(comment_obj);
+			Meteor.call("submitComment", comment_obj);
       //insert obj in comments table locally on
       //client, send to server, server will update
       //collection, and update everyone's collections
@@ -37,7 +37,8 @@ Template.comments.events({
 Template.commentRow.events({
   "click .js-delete-comment":
 	 function(event){
-     console.log("clicked remove X")
-    Comments.remove(this.comment._id);
+     console.log("removing...");
+		 console.dir(this);
+		Meteor.call("removeComment", this.comment._id);
   },
 })
