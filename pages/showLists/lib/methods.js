@@ -1,7 +1,12 @@
 Meteor.methods({
-  "removeList": function(id){
-    Lists.remove(id);
-    console.log("removed comment" +id);
+  "removeList": function(id, list){
+    if(id == Meteor.userId()){
+      Lists.remove(list);
+      console.log("removed comment" + list);
+    }
+    else{
+      console.log("this is not your list");
+    }
   },
 
 })

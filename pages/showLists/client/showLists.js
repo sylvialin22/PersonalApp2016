@@ -29,9 +29,10 @@ Template.listRow.events({
   "click .js-delete-list":
 	 function(event){
      console.log("clicked remove X")
-    // Lists.remove(this.list._id);
-    console.dir(this);
-   Meteor.call("removeList", this.list._id);
+     console.dir(this);
+     //test for insecure package
+    //  Lists.remove(this.list._id);
+     Meteor.call("removeList", this.list.createdBy, this.list._id);
 
   },
   "click .js-edit-list":

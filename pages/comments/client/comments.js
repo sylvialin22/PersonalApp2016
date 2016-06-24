@@ -23,6 +23,7 @@ Template.comments.events({
 	    createdBy: Meteor.userId(),
 	    userEmail: Meteor.user().emails[0].address};
 	    console.dir(comment_obj);
+			// Comments.insert(comment_obj);  <-- test for insecure package -->
 			Meteor.call("submitComment", comment_obj);
       //insert obj in comments table locally on
       //client, send to server, server will update
@@ -39,6 +40,8 @@ Template.commentRow.events({
 	 function(event){
      console.log("removing...");
 		 console.dir(this);
-		Meteor.call("removeComment", this.comment._id);
+		 //test for insecure package
+		//  Comments.remove(this.comment._id);
+		Meteor.call("removeComment", this.comment.createdBy, this.comment._id);
   },
 })
