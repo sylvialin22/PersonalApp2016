@@ -10,6 +10,7 @@ Template.showLists.events({
     console.log("clicked search button")
     //read in the values of the input fields and store
     const list = $(".js-list").val();
+    // Meteor.find("findList", this.listsData, list);
     console.dir(list);
     $(".js-find-list").val("");
   }
