@@ -20,48 +20,5 @@ Template.home.events({
     console.log("SUCCESS");
     // Session.set('showCompleted',true);
   },
-  "change .js-color": function(event, instance){
-    console.log($(".js-color").val());
-    //change the color field of the state object...
-    const c = instance.$(".js-color").val(); //local instance query
-    return instance.state.set('color', c);
-  },
-
-  "click .js-counter": function(event, instance){
-    console.log("PUSHED");
-    const c = instance.state.get("counter"); //local instance query
-    return instance.state.set('counter', c + 1);
-  },
-
-})
-
-Template.home.onCreated(function() {
-  this.state = new ReactiveDict();
-  this.state.setDefault({
-    color: "bg-info",
-    counter: 0,
-  });
-  console.log("creating the template");
-  console.dir(this.state);
+  
 });
-
-Template.home.helpers({
-  theColor: function(){
-    const instance = Template.instance();
-    return instance.state.get("color");
-  },
-  theCounter: function(){
-    const instance = Template.instance();
-    return instance.state.get("counter");
-  },
-  // visibility: function(){
-	// 	if (Session.get("showCompleted")) {
-	// 		   return "visible";
-	// 	   } else {
-	// 	   	   return "hidden";
-	// 	   }
-	// },
-	// showCompleted: function(){
-	// 	return Session.get("showCompleted")
-	// }
-})

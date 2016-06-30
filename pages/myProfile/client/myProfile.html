@@ -1,0 +1,42 @@
+<template name="myProfile">
+  <h1>My Profile</h1>
+  <hr>
+
+  {{#if currentUser}}
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon1">First Name: </span>
+    <input type="text" class="js-firstName" placeholder="First Name" aria-describedby="sizing-addon2" size="60">
+    </div>
+    <br>
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2">Last Name:</span>
+    <input type="text" class="js-lastName" placeholder="Last Name" aria-describedby="sizing-addon2" size="60">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2">Nickname:</span>
+    <input type="text" class="js-nickname" placeholder="Nickname" aria-describedby="sizing-addon2" size="60">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2">Email:</span>
+    <input type="text" class="js-email" placeholder="Email" aria-describedby="sizing-addon2" size="60">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2">Birthyear:</span>
+    <input type="text" class="js-birthyear" placeholder="Birthyear" aria-describedby="sizing-addon2" size="60">
+  </div>
+
+    <br>
+
+    <button class="js-submit-info btn btn-default"> Submit</button>
+
+ {{else}}
+   <h3> You must log in order to enter your information! </h3>
+
+{{/if}}
+
+<br><br>
+
+</template>

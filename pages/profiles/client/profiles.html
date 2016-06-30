@@ -1,0 +1,40 @@
+<template name="profiles">
+  <h1>All Profiles</h1>
+  <hr>
+
+  {{#if currentUser}}
+    <div>
+    		<ol>
+    		{{#each userData}}
+    		<li>First Name: {{firstName}}
+        || Last Name: {{lastName}}
+        || Nickname: {{nickname}}
+        || Email: {{email}}
+        || Birthyear: {{birthyear}} </li>
+    		{{/each}}
+    		</ol>
+    	</div>
+ {{else}}
+   <h3> You must log in order to see other profiles! </h3>
+<br><br>
+
+{{/if}}
+
+
+
+
+</template>
+
+
+<!-- <template name = "userRow">
+  <ol>
+    <li>
+      First Name: {{userProfile.firstName}}
+      || Last Name: {{userProfile.lastName}}
+      || Nickname: {{userProfile.nickname}}
+      || Email: {{userProfile.email}}
+      || Birthyear: {{userProfile.birthyear}}
+    </li>
+  </ol>
+  <br>
+</template> -->

@@ -1,53 +1,15 @@
 <template name="home">
   <div class="jumbotron">
-  <h1>Wishlist
-    <!-- <img src="images/bucketlist.jpg" width="100">  -->
-  </h1>
-  <p>Welcome to my Personal App!</p>
-  <p><a class="btn btn-primary btn-lg" href="{{pathFor 'about'}}" role="button">Learn more</a></p>
-  <p><a class="btn btn-primary btn-lg" href="{{pathFor 'showLists'}}" role="button">Your BucketLists</a></p>
-
+  <h1>Quiz 2</h1>
+  <p>Sylvia Lin</p>
 </div>
 
 <br><br>
-
 {{#if currentUser}}
 		Congratulations! You're logged in!
 
-    <h2>Make new list</h2>
-
-
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">List Title:</span>
-        <input type="text" class="js-name" aria-describedby="basic-addon1" size="60">
-
-      <span class="input-group-addon" id="basic-addon1">Items: </span>
-      <input type="text" class="js-items" aria-describedby="basic-addon1" size="60">
-
-    </div>
-    <br>
-
-    <button class="js-submitList btn btn-default"> Submit</button>
-
-    <!-- <div class="alert alert-success alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <strong>Success!</strong> You're list has been created!
-    </div> -->
-
-    <br>
-
 	{{else}}
-		You must logged in.
+		<h2> You must logged in!</h2>
   {{/if}}
-  <br>
-  <div class="{{theColor}}">
-  <select class = "js-color">
-    <option>bg-info</option>
-    <option>bg-warning</option>
-  </select>
-  Color: {{theColor}}<br>
 
-  Counter: {{theCounter}}<br>
-  <button class="js-counter"> Push me </button>
-</div>
 </template>

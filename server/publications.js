@@ -1,8 +1,5 @@
-Meteor.publish("theComments",
-  function(){return Comments.find();})
-
-Meteor.publish("theLists",
-  function(){return Lists.find();})
+Meteor.publish("theUserProfiles",
+  function(){return UserProfiles.find();})
 
 Meteor.publish("userData", function () {
   if (this.userId) {  //only if you log in you can see it
