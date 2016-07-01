@@ -4,6 +4,9 @@ Meteor.publish("theComments",
 Meteor.publish("theLists",
   function(){return Lists.find();})
 
+Meteor.publish("theSettings",
+  function(){return Settings.find();})
+
 Meteor.publish("userData", function () {
   if (this.userId) {  //only if you log in you can see it
 	  //return Meteor.users.find({}); // everyone sees everything

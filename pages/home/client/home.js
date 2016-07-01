@@ -54,14 +54,8 @@ Template.home.helpers({
     const instance = Template.instance();
     return instance.state.get("counter");
   },
-  // visibility: function(){
-	// 	if (Session.get("showCompleted")) {
-	// 		   return "visible";
-	// 	   } else {
-	// 	   	   return "hidden";
-	// 	   }
-	// },
-	// showCompleted: function(){
-	// 	return Session.get("showCompleted")
-	// }
+    settingsData: function(){
+      return Settings.findOne();
+    },
+
 })

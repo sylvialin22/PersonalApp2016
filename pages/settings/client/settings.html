@@ -1,0 +1,26 @@
+<template name="settings">
+  <h2> My Settings </h2>
+
+  {{#if currentUser}}
+  <br><br>
+  <center>
+  This is your current greeting:
+  <h3>{{settingsData.greeting}}</h3>
+</center>
+  <br><br>
+  <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">New Greeting:</span>
+      <input type="text" class="js-settings" aria-describedby="basic-addon1" size="60">
+  </div>
+  <br>
+  <button class="js-submit-settings btn btn-default"> Submit</button>
+
+
+ {{else}}
+   <h3> You must log in order to see other profiles! </h3>
+<br><br>
+
+{{/if}}
+
+
+</template>
