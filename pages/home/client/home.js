@@ -1,4 +1,15 @@
 Template.home.events({
+  "click .js-login": function(event){
+    console.log("BUTTON CLICKED");
+    window.location.replace("/login/");
+
+  },
+  "click .js-add-item": function(event){
+    console.log("BUTTON CLICKED");
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "checkbox");
+    document.body.appendChild(x);
+  },
   "click .js-submitList": function(event){
     console.log("BUTTON CLICKED");
     //read in the values of the input fields and store
@@ -18,7 +29,7 @@ Template.home.events({
     $(".js-name").val("");
     $(".js-items").val("");
     console.log("SUCCESS");
-    // Session.set('showCompleted',true);
+
   },
   "change .js-color": function(event, instance){
     console.log($(".js-color").val());

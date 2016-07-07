@@ -9,22 +9,21 @@ Template.showLists.events({
   "click .js-find-list": function(event){
     console.log("clicked search button")
     //read in the values of the input fields and store
-    const list = $(".js-list").val();
+    const listName = $(".js-list").val();
     // Meteor.find("findList", this.listsData, list);
-    console.dir(list);
-    $(".js-find-list").val("");
-  }
+
+    Meteor.apply("getList",[listName],{returnStubValue: true},
+        function(error,result){
+
+          console.dir(['getList',error,result]);
+          r = JSON.parse(result);
+          console.dir(r);
+          return instance.state.set("lists",r.results);
+        });
+        console.dir(list);
+        $(".js-find-list").val("");
+    },
 })
-
-// Template.listRow.helpers({
-// 	visibility: function(){
-// 		if (Session.get("showCompleted")) {
-// 			   return "visible";
-// 		   } else {
-// 		   	   return "hidden";
-// 		   }
-// 	},
-
 
 Template.listRow.events({
   "click .js-delete-list":
@@ -42,9 +41,4 @@ Template.listRow.events({
     const id = this.list._id;
     window.location.replace("/showLists/" + id);
   },
-  "click .js-complete-list":
-  function(event){
-    console.log("completed list, going to archive");
-
-  }
 })
