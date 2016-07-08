@@ -16,7 +16,7 @@ Template.settings.events({
       user: Meteor.userId(),
     };
     Meteor.call("submitSettings", setting);
-    $(".js-settings").cdval("");
+    $(".js-settings").val("");
     console.dir(setting);
     console.log("SUCCESS");
   },

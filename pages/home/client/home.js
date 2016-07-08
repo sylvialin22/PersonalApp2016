@@ -43,6 +43,12 @@ Template.home.events({
     const c = instance.state.get("counter"); //local instance query
     return instance.state.set('counter', c + 1);
   },
+  // "click .js-add-item": function myFunction() {
+  //   var x = document.createElement("INPUT");
+  //   x.setAttribute("type", "text");
+  //   x.setAttribute("value", "Hello World!");
+  //   document.body.appendChild(x);
+  // },
 
 })
 
