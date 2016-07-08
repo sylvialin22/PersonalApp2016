@@ -18,3 +18,6 @@ Meteor.publish("userData", function () {
     this.ready();
   }
 });
+
+Meteor.publish("theBios",
+  function(){return Bios.find();})

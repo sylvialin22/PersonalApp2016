@@ -4,6 +4,40 @@ by Sylvia Lin
 
 <br>
 
+<div class="update-bio">
+  <div class="col-md-6 col-md-offset-0 bg-info">
+    <h2>Update your bio below</h2>
+    Name: <input class="js-name" type="text">
+    <br>
+    Bio:
+    <br>
+    <textarea class="js-bio" style="width: 500px; height:100px"></textarea>
+    <br>
+    <button class="js-submit-bio btn">Update Bio</button>
+  </div>
 
+  <div class="col-md-6 col-md-offset-0 bg-warning">
+    <h2> or select a bio to view</h2>
+    <ul class="bio-list">
+      {{#each b in bioData}}
+        {{> bioRow bio = b}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
+</template>
+
+<template name = "bioRow">
+  <li class="list-bio">
+    <a href="/showBios/{{bio._id}}">{{bio.name}}</a>
+  </li>
+</template>
+
+<template name = "selectedBio">
+  <div class="jumbotron">
+    <h1 >{{name}}</h1>
+    <br>
+    <p font-size="20px">{{bio}}</p>
+  </div>
 
 </template>
