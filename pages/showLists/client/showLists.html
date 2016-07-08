@@ -1,15 +1,21 @@
 <template name="showLists">
   <h1>All Lists</h1>
-  Find list: <input type="text" class="js-list">
-  <button class="js-find-list btn btn-default"> Search</button>
+  <!-- Find list: <input type="text" class="js-list"> -->
+  <!-- <button class="js-find-list btn btn-default"> Search</button> -->
 
   <hr>
 
+{{#if currentUser}}
   <ul class="list-group">
     {{#each r in listData}}
       {{> listRow list = r}}
     {{/each}}
   </ul>
+  {{else}}
+    <h3> You must log in to see your lists! </h3>
+ <br><br>
+
+ {{/if}}
 </template>
 
 

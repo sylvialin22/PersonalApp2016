@@ -4,12 +4,6 @@ Template.home.events({
     window.location.replace("/login/");
 
   },
-  "click .js-add-item": function(event){
-    console.log("BUTTON CLICKED");
-    var x = document.createElement("INPUT");
-    x.setAttribute("type", "checkbox");
-    document.body.appendChild(x);
-  },
   "click .js-submitList": function(event){
     console.log("BUTTON CLICKED");
     //read in the values of the input fields and store
@@ -20,7 +14,7 @@ Template.home.events({
       items:list_items,
       createdAt: new Date(),
       createdBy: Meteor.userId(),
-      userEmail: Meteor.user().emails[0].address
+      // userEmail: Meteor.user().emails[0].address,
     };
     console.dir(list);
     //test for insecure package
@@ -43,6 +37,13 @@ Template.home.events({
     const c = instance.state.get("counter"); //local instance query
     return instance.state.set('counter', c + 1);
   },
+  "click .js-add-item": function(event, instance){
+    console.log("PUSHED");
+    document.getElementByClassName("js-add-item");
+    var div = document.createElement('div');
+    var text = document.createTextNode('Y HALO THAR');
+    div.appendChild(text);
+  }
 
 })
 
@@ -65,8 +66,9 @@ Template.home.helpers({
     const instance = Template.instance();
     return instance.state.get("counter");
   },
-    settingsData: function(){
-      return Settings.findOne();
-    },
+  settingsData: function(){
+    console.log(Settings.findOne({user:Meteor.userId()}));
+    return Settings.findOne({user:Meteor.userId()});
+  },
 
 })
