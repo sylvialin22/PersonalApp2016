@@ -1,13 +1,27 @@
 Template.comments.helpers({
 	commentsdata: function(){
-		return Comments.find({},{sort:{createdAt:1}});}
-
-
+		return Comments.find({},{sort:{createdAt:1}});
+	},
+		theColor: function(){
+	    const instance = Template.instance();
+	    return instance.state.get("color");
+	  },
+	  theCounter: function(){
+	    const instance = Template.instance();
+	    return instance.state.get("counter");
+	  },
 })
+Template.home.onCreated(function() {
+  this.state = new ReactiveDict();
+  this.state.setDefault({
+    color: "bg-info",
+  });
+  console.log("creating the template");
+  console.dir(this.state);
+});
 
 Template.comments.events({
-	"click .js-submit-comment":
-	 function(event){
+	"click .js-submit-comment": function(event){
 	   event.preventDefault();
 	   //console.dir(event);
 	   const comment_text = $(".js-user-comment").val();
@@ -21,7 +35,9 @@ Template.comments.events({
        rating: comment_rating,
 	    createdAt: new Date(),
 	    createdBy: Meteor.userId(),
-	    userEmail: Meteor.user().emails[0].address};
+	    // userEmail: Meteor.user().emails[0].address
+			userEmail: ("services.google.email"),
+		};
 	    console.dir(comment_obj);
 			// Comments.insert(comment_obj);  <-- test for insecure package -->
 			Meteor.call("submitComment", comment_obj);
@@ -32,7 +48,12 @@ Template.comments.events({
       //Router.go('/');
       console.log("SUCCESS");
 	},
-
+	"change .js-color-comment": function(event, instance){
+		console.log($(".js-color").val());
+		//change the color field of the state object...
+		const c = instance.$(".js-color").val(); //local instance query
+		return instance.state.set('color', c);
+	},
 });
 
 Template.commentRow.events({

@@ -1,14 +1,11 @@
 Template.home.events({
+
   "click .js-login": function(event){
     console.log("BUTTON CLICKED");
     window.location.replace("/login/");
+    $(document).ready(function() {
+});
 
-  },
-  "click .js-add-item": function(event){
-    console.log("BUTTON CLICKED");
-    var x = document.createElement("INPUT");
-    x.setAttribute("type", "checkbox");
-    document.body.appendChild(x);
   },
   "click .js-submitList": function(event){
     console.log("BUTTON CLICKED");
@@ -20,7 +17,7 @@ Template.home.events({
       items:list_items,
       createdAt: new Date(),
       createdBy: Meteor.userId(),
-      userEmail: Meteor.user().emails[0].address
+      // userEmail: Meteor.user().emails[0].address,
     };
     console.dir(list);
     //test for insecure package
@@ -43,12 +40,20 @@ Template.home.events({
     const c = instance.state.get("counter"); //local instance query
     return instance.state.set('counter', c + 1);
   },
+
   // "click .js-add-item": function myFunction() {
   //   var x = document.createElement("INPUT");
   //   x.setAttribute("type", "text");
   //   x.setAttribute("value", "Hello World!");
   //   document.body.appendChild(x);
   // },
+  "click .js-add-item": function(event, instance){
+    console.log("PUSHED");
+    document.getElementByClassName("js-add-item");
+    var div = document.createElement('div');
+    var text = document.createTextNode('Y HALO THAR');
+    div.appendChild(text);
+  }
 
 })
 
@@ -58,8 +63,22 @@ Template.home.onCreated(function() {
     color: "bg-info",
     counter: 0,
   });
-  console.log("creating the template");
-  console.dir(this.state);
+  // console.log("creating the template");
+  // console.dir(this.state);
+
+  $(document).ready(function() {
+
+  $("#owl-demo").owlCarousel({
+
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+      items : 4,
+      itemsDesktop : [1199,3],
+      itemsDesktopSmall : [979,3]
+
+  });
+
+});
 });
 
 Template.home.helpers({
@@ -71,8 +90,9 @@ Template.home.helpers({
     const instance = Template.instance();
     return instance.state.get("counter");
   },
-    settingsData: function(){
-      return Settings.findOne();
-    },
+  settingsData: function(){
+    console.log(Settings.findOne({user:Meteor.userId()}));
+    return Settings.findOne({user:Meteor.userId()});
+  },
 
 })

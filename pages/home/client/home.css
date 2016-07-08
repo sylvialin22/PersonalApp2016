@@ -1,3 +1,12 @@
 .jumbotron {
 background-image: url("/images/space.jpg");
-background-size: cover;}
+background-size: cover;},
+
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}

@@ -1,22 +1,38 @@
 <template name = "comments">
   {{#if currentUser}}
     <h1> Comments </h1>
-    <div>
-    </div>
-<br>
+    <hr>
+    <br>
+    <div class="container-fluid bg-1 text-center {{theColor}}">
+
+    <h4> Please provide some feedback on this app. Thank you! </h4>
+
+    How would you rate this app?
+
+    <select class="js-rating-comment">
+        <option> ***** </option>
+        <option> **** </option>
+        <option> *** </option>
+        <option> ** </option>
+        <option> * </option>
+    </select>
+    <br><br>
+    Additional Feedback:
     <input type="text" class="js-user-comment">
+    <button class="js-submit-comment btn btn-md btn-info">Submit</button>
     <br>
 
-    <button class="js-submit-comment btn btn-lg btn-info">
-      Submit
-    </button>
-    <select class="js-rating-comment">
-        <option> 1 </option>
-        <option> 2 </option>
-        <option> 3 </option>
-        <option> 4 </option>
-        <option> 5 </option>
+    <select class = "js-color">
+      <option>bg-default</option>
+      <option>bg-info</option>
+      <option>bg-warning</option>
+      <option>bg-success</option>
     </select>
+      <br>
+    </div>
+
+
+    <br><br>
   {{else}}
     <h2> You must log in order to comment </h2>
 <br><br>
@@ -31,6 +47,7 @@
 
 </ul>
 </template>
+
 
 
 

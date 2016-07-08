@@ -1,12 +1,13 @@
 <template name="settings">
   <h2> My Settings </h2>
+  <hr>
 
   {{#if currentUser}}
   <br><br>
   <center>
-  This is your current greeting:
+  Your current greeting:
   <h3>{{settingsData.greeting}}</h3>
-</center>
+  </center>
   <br><br>
   <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">New Greeting:</span>
@@ -15,12 +16,11 @@
   <br>
   <button class="js-submit-settings btn btn-default"> Submit</button>
 
+  {{else}}
+   <h3> You must log in to see your greeting! </h3>
+   <br><br>
 
- {{else}}
-   <h3> You must log in order to see other profiles! </h3>
-<br><br>
-
-{{/if}}
+   {{/if}}
 
 
 </template>
