@@ -35,4 +35,18 @@
   <ol>
     <li><a href="https://google.com/#q={{name}}+{{items}}">{{items}}</a></li>
   </ol>
+  {{ > addItem}}
+  <!-- <button class="js-submit-item btn btn-default"> Submit</button> -->
+
+</template>
+
+<template name = "addItem">
+  <!-- <div class="col-xs-4"> -->
+  <form>
+  <label for="ex3">Add Item:</label>
+  <input class="js-new-item" id="ex3" type="text">
+  <input type="submit" value="Submit">
+
+  <!-- </div> -->
+  </form>
 </template>

@@ -8,4 +8,12 @@ Meteor.methods({
       console.log("this is not your list");
     }
   },
+  "updateList": function(listID,newItem){
+    // Lists.update({$push:{items: newItem}});
+    Lists.update({id: listID},{$push: {items:newItem}});
+    console.log(listID);
+    console.log("added item");
+
+
+  }
 })

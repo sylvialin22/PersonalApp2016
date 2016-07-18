@@ -42,3 +42,26 @@ Template.listRow.events({
     window.location.replace("/showLists/" + id);
   },
 })
+
+// Template.selectedList.events({
+//   "click .js-submit-item": function(event){
+//     console.log("button pushed");
+//     const newItem = $(".js-new-item").val("");
+//     // const listID = this.list._id;
+//     Meteor.call("updateList", newItem);
+//     $(".js-new-item").val();
+//
+//   }
+// })
+Template.addItem.events({
+  "submit form": function(){
+    event.preventDefault();
+    console.log("button pushed");
+    const newItem = $(".js-new-item").val("");
+    // const listID = this.list._id;
+    var listId = Lists.find().fetch()[0]._id;
+    Meteor.call("updateList", listId, newItem);
+    $(".js-new-item").val();
+
+  },
+})

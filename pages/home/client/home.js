@@ -13,6 +13,7 @@ Template.home.events({
     const list_name = $(".js-name").val();
     const list_items = $(".js-items").val();
     const list = {
+      id:list_items,
       name:list_name,
       items:list_items,
       createdAt: new Date(),
@@ -66,19 +67,19 @@ Template.home.onCreated(function() {
   // console.log("creating the template");
   // console.dir(this.state);
 
-  $(document).ready(function() {
+  // $(document).ready(function() {
+  //
+  // $("#owl-demo").owlCarousel({
+  //
+  //     autoPlay: 3000, //Set AutoPlay to 3 seconds
+  //
+  //     items : 4,
+  //     itemsDesktop : [1199,3],
+  //     itemsDesktopSmall : [979,3]
+  //
+  // });
 
-  $("#owl-demo").owlCarousel({
-
-      autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-      items : 4,
-      itemsDesktop : [1199,3],
-      itemsDesktopSmall : [979,3]
-
-  });
-
-});
+// });
 });
 
 Template.home.helpers({
